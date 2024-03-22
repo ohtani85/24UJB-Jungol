@@ -10,7 +10,8 @@ public class Main {
         double num1 = scanner.nextDouble();
         double num2 = scanner.nextDouble();
         char ct = scanner.next().charAt(0); // 문자열에서 첫 번째 문자를 가져옴
-        
+        scanner.close();
+       
         // 실수는 반올림하여 소수 둘째자리까지, 문자는 그대로 출력
         System.out.printf("%.2f\n", num1);
         System.out.printf("%.2f\n", num2);
