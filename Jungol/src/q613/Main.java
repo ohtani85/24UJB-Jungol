@@ -2,40 +2,69 @@ package q613;
 
 import java.util.Scanner;
 
-//학생 정보를 저장할 클래스 정의
-class Student {
-	String name;
-	String school;
-	int grade;
-
-	// 생성자
-	public Student(String name, String school, int grade) {
-		this.name = name;
-		this.school = school;
-		this.grade = grade;
-	}
-
-	// 학생 정보를 출력하는 메소드
-	public void printInfo() {
-		System.out.println("Name : " + name);
-		System.out.println("School : " + school);
-		System.out.println("Grade : " + grade);
-	}
-}
-
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-
-		// 사용자로부터 입력 받기
-		String input = sc.nextLine();
-		String[] parts = input.split(" ");
-
-		// 입력받은 정보를 바탕으로 Student 객체 생성
-		Student student = new Student(parts[0], parts[1], Integer.parseInt(parts[2]));
-
-		// 학생 정보 출력
-		student.printInfo();
+		String name = sc.next();
+		String schoolName = sc.next();
+		int grade = sc.nextInt();
 		sc.close();
+
+//		System.out.println(name);
+//		System.out.println(schoolName);
+//		System.out.println(grade);
+
+//		Student st1 = new Student();
+//		st1.setName(name);
+//		st1.setSchoolName(schoolName);
+//		st1.setGrade(grade);
+		Student st2 = new Student(name, schoolName, grade);
+
+//		System.out.println("Name : " + st1.getName());
+//		System.out.println("School : " + st1.getSchoolName());
+//		System.out.println("Grade : " + st1.getGrade());
+		st2.print();
+	}
+}
+
+class Student {
+	private String name;
+	private String schoolName;
+	private int grade;
+
+	public Student(String name, String schoolName, int grade) {
+		this.name = name;
+		this.schoolName = schoolName;
+		this.grade = grade;
+	}
+
+	public void print() {
+		System.out.println("Name : " + name);
+		System.out.println("School : " + schoolName);
+		System.out.println("Grade : " + grade);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 }
