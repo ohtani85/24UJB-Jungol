@@ -25,10 +25,10 @@ class Student {
 
 public class Main {
  public static void main(String[] args) {
-     Scanner scanner = new Scanner(System.in);
+     Scanner sc = new Scanner(System.in);
 
      // 사용자로부터 입력 받기
-     String input = scanner.nextLine();
+     String input = sc.nextLine();
      String[] parts = input.split(" ");
 
      // 입력받은 정보를 바탕으로 Student 객체 생성
@@ -36,6 +36,6 @@ public class Main {
 
      // 학생 정보 출력
      student.printInfo();
-     scanner.close();
+     sc.close();
  }
 }
