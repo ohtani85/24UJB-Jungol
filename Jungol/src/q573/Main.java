@@ -7,16 +7,13 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		int n = sc.nextInt();
-		printNumberSquare(n);
 		sc.close();
-	}
 
-	private static void printNumberSquare(int n) {
-		int number = 1; 
+		int num = 1;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				System.out.print(number + " ");
-				number++; 
+				System.out.print(num + " ");
+				num++;
 			}
 			System.out.println();
 		}
