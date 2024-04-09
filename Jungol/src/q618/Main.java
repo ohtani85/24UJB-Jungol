@@ -21,13 +21,13 @@ class Person {
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		List<Person> persons = new ArrayList<>();
 
 		for (int i = 0; i < 5; i++) {
-			String name = scanner.next();
-			int height = scanner.nextInt();
-			double weight = scanner.nextDouble();
+			String name = sc.next();
+			int height = sc.nextInt();
+			double weight = sc.nextDouble();
 			persons.add(new Person(name, height, weight));
 		}
 
@@ -38,5 +38,6 @@ public class Main {
 		// 몸무게가 무거운 순으로 정렬
 		System.out.println("\nweight");
 		persons.stream().sorted((p1, p2) -> Double.compare(p2.weight, p1.weight)).forEach(System.out::println);
+		sc.close();
 	}
 }
