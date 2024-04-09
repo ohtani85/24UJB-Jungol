@@ -1,69 +1,90 @@
 package q618;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 class Person {
-    String name;
-    int height;
-    double weight;
+	private String name;
+	private int height;
+	private double weight;
 
-    public Person(String name, int height, double weight) {
-        this.name = name;
-        this.height = height;
-        this.weight = weight;
-    }
+	public Person(String name, int height, double weight) {
+		this.name = name;
+		this.height = height;
+		this.weight = weight;
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%s %d %.1f", name, height, weight);
-    }
+	public void print() {
+		System.out.println(name + " " + height + " " + weight);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
 }
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        List<Person> people = new ArrayList<>();
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Person[] p = new Person[5];
+		for (int i = 0; i < p.length; i++) {
+			String name = sc.next();
+			int height = sc.nextInt();
+			double weight = sc.nextDouble();
 
-        for (int i = 0; i < 5; i++) {
-            String name = sc.next();
-            int height = sc.nextInt();
-            double weight = sc.nextDouble();
-            people.add(new Person(name, height, weight));
-        }
+			p[i] = new Person(name, height, weight);
+		}
+		sc.close();
 
-        // 이름순으로 정렬
-        for (int i = 0; i < people.size(); i++) {
-            for (int j = 0; j < people.size() - 1; j++) {
-                if (people.get(j).name.compareTo(people.get(j + 1).name) > 0) {
-                    Person temp = people.get(j);
-                    people.set(j, people.get(j + 1));
-                    people.set(j + 1, temp);
-                }
-            }
-        }
+		// name sort
+		System.out.println("name");
+		Arrays.sort(p, new Comparator<Person>() {
+			@Override
+			public int compare(Person o1, Person o2) {
+				String name1 = o1.getName();
+				String name2 = o2.getName();
 
-        System.out.println("name");
-        for (Person person : people) {
-            System.out.println(person);
-        }
+				int strlen = Math.min(name1.length(), name2.length());
+				for (int i = 0; i < strlen; i++) {
+					if (name1.charAt(i) != name2.charAt(i)) {
+						return name1.charAt(i) - name2.charAt(i);
+					}
+				}
+				return 0;
+			}
+		});
 
-        // 몸무게가 무거운 순으로 정렬
-        for (int i = 0; i < people.size(); i++) {
-            for (int j = 0; j < people.size() - 1; j++) {
-                if (people.get(j).weight < people.get(j + 1).weight) {
-                    Person temp = people.get(j);
-                    people.set(j, people.get(j + 1));
-                    people.set(j + 1, temp);
-                }
-            }
-        }
+		// print
+		for (int i = 0; i < p.length; i++) {
+			p[i].print();
+		}
 
-        System.out.println("\nweight");
-        for (Person person : people) {
-            System.out.println(person);
-            sc.close();
-        }
-    }
+		// weight sort
+		System.out.println("weight");
+		Arrays.sort(p, new Comparator<Person>() {
+			@Override
+			public int compare(Person o1, Person o2) {
+				double weight1 = o1.getWeight();
+				double weight2 = o2.getWeight();
+
+				if (weight1 > weight2) {
+					return 1;
+				} else if (weight1 < weight2) {
+					return -1;
+				} else {
+					return 0;
+				}
+			}
+		});
+
+		// print
+		for (int i = 0; i < p.length; i++) {
+			p[i].print();
+		}
+	}
 }
