@@ -6,15 +6,15 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int first = sc.nextInt();
-		int second = sc.nextInt();
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
 
-		int result = power(first, second);
+		int result = n3(n1, n2);
 		System.out.println(result);
 		sc.close();
 	}
 
-	public static int power(int first, int second) {
-		return (int) Math.pow(first, second);
+	public static int n3(int n1, int n2) {
+		return (int) Math.pow(n1, n2);
 	}
 }
