@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in); // Scanner 객체명을 sc로 변경
+		Scanner sc = new Scanner(System.in);
 
 		int sum = 0; // 입력된 수들의 합계
 		int count = 0; // 입력된 유효한 수의 개수
@@ -16,7 +16,7 @@ public class Main {
 			sum += number; // 유효한 숫자를 sum에 더함
 			count++; // 유효한 숫자 개수 증가
 		}
-		sc.close(); // 스캐너 자원 해제
+		sc.close();
 
 		if (count > 0) {
 			double average = (double) sum / count; // 평균 계산
