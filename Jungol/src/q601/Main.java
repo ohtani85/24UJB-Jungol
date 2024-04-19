@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("문자열을 입력하세요 (100자 이하):");
 		String input = sc.nextLine();
 
 		int length = input.length();
